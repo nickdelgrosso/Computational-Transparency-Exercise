@@ -1,0 +1,14 @@
+extract:
+  cmd: python scripts\1_unpack_zip.py
+  deps:
+  - path: data\1_raw\short_gutenberg.zip
+    md5: e97dc59a951aab6e6309806d87a13988
+    size: 14788379
+  - path: scripts\1_unpack_zip.py
+    md5: efa7af341774498d8cc59db429f904bc
+    size: 150
+  outs:
+  - path: data\2_extracted
+    md5: 4c5d81b570857a40393a3a5b505b3650.dir
+    size: 40703392
+    nfiles: 78

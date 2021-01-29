@@ -1,0 +1,8 @@
+stages:
+  extract:
+    cmd: python scripts\1_unpack_zip.py
+    deps:
+    - data\1_raw\short_gutenberg.zip
+    - scripts\1_unpack_zip.py
+    outs:
+    - data\2_extracted
