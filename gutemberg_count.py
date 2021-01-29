@@ -1,10 +1,8 @@
 
 from pathlib import Path
-import shutil
 import zipfile
 from collections import Counter
 import matplotlib.pyplot as plt
-from tqdm import tqdm
 import pickle
 import pandas as pd
 import numpy as np
