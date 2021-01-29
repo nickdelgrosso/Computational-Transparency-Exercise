@@ -22,9 +22,9 @@ This analysis contains clean Python code, but the code is not easily reproducibl
   2. Add conda info (`environment.yml`) to get code dependencies to run the analysis.
   3. Alter the script so it puts the results into a `results` directory
   4. Alter the script so it puts the data into stages in `data` subdirectories: `data/raw`, `data/processed`, and `data/final`.
-  5. Convert all data steps into open, non-python-coupled formats.
-  5. Split the script into smaller scripts, breaking it into places that naturally input in the beginning and output at the end.
-  6. Make a shell script (.sh or .bat) that calls the scripts in order.  
+  5. Convert all data steps into open, non-python-coupled data file formats (e.g. json, yaml, csv, HDF5).
+  6. Split the script into smaller scripts, breaking it into places that naturally input in the beginning and output at the end.
+  7. Make a shell script (.sh or .bat) that calls the scripts in order.  
 
 ## Further Reading
 

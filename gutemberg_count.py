@@ -1,5 +1,4 @@
 
-import json
 from pathlib import Path
 import shutil
 import zipfile
@@ -8,13 +7,13 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 import pickle
 import pandas as pd
-
+import numpy as np
 
 # Unpack Data
 with zipfile.ZipFile("short_gutenberg.zip", 'r') as zip_ref:
     zip_ref.extractall(".")
     
-# Save Word Count, for each work, into a json file
+# Save Word Count, for each work, into a numpy file
 data_dir = Path(".")
 for f in data_dir.glob('**/*.txt'):
     try:
@@ -23,14 +22,15 @@ for f in data_dir.glob('**/*.txt'):
         continue
     words = "".join(c for c in text if c not in "\".;:,!$-'1234567890?[](){}><^%=_ã©&").replace('\n', ' ').lower().split()
     counts = Counter(words)
-    with f.with_suffix('.json').open('w') as json_file:
-        json.dump(counts, json_file)
+    np.save(f.with_suffix('.npy'), counts)
     
 # Sum Word Counts
 data_dir = Path(".")
 total_counts = Counter()
-for f in data_dir.glob('**/*.json'):
-    total_counts += Counter(json.load(f.open('r')))
+for f in data_dir.glob('**/*.npy'):
+    data = np.load(f.with_suffix('.npy'), allow_pickle=True)
+    dd = dict(data.item())
+    total_counts += Counter(dd)
 
 final_dir = Path(".")
 final_dir.mkdir(exist_ok=True, parents=True)
