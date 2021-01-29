@@ -6,6 +6,7 @@ import numpy as np
 # Save Word Count, for each work, into a numpy file
 data_dir = Path("data/2_extracted")
 output_dir = Path("data/3_word_counts")
+output_dir.mkdir(exist_ok=True, parents=True)
 for f in data_dir.glob('**/*.txt'):
     try:
         text = f.read_text()
