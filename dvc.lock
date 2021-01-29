@@ -12,3 +12,48 @@ extract:
     md5: 4c5d81b570857a40393a3a5b505b3650.dir
     size: 40703392
     nfiles: 78
+count_words:
+  cmd: python scripts\2_word_count.py
+  deps:
+  - path: data\2_extracted
+    md5: 4c5d81b570857a40393a3a5b505b3650.dir
+    size: 40703392
+    nfiles: 78
+  - path: scripts\2_word_count.py
+    md5: 8739a492787c24a630d58e3496752ce7
+    size: 710
+  outs:
+  - path: data\3_word_counts
+    md5: e7a0c0de57611630687d0b6c9a18793f.dir
+    size: 10012778
+    nfiles: 75
+sum_words:
+  cmd: python scripts\3_sum_counts.py
+  deps:
+  - path: data\3_word_counts
+    md5: e7a0c0de57611630687d0b6c9a18793f.dir
+    size: 10012778
+    nfiles: 75
+  - path: scripts\3_sum_counts.py
+    md5: 53758d13f08d68e585ebab5601646c9b
+    size: 568
+  outs:
+  - path: data\4_final_word_count
+    md5: 474c6037e33d69c40d13f84efb19afe8.dir
+    size: 1224004
+    nfiles: 1
+plot_results:
+  cmd: python scripts\4_gen_plots.py
+  deps:
+  - path: data\4_final_word_count
+    md5: 474c6037e33d69c40d13f84efb19afe8.dir
+    size: 1224004
+    nfiles: 1
+  - path: scripts\4_gen_plots.py
+    md5: a2e05840fd16eb7fe989de8828ea4999
+    size: 690
+  outs:
+  - path: results
+    md5: 2d9261b046d16eb03b0c5751520b987b.dir
+    size: 31790
+    nfiles: 3

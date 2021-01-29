@@ -6,3 +6,24 @@ stages:
     - scripts\1_unpack_zip.py
     outs:
     - data\2_extracted
+  count_words:
+    cmd: python scripts\2_word_count.py
+    deps:
+      - data\2_extracted
+      - scripts\2_word_count.py
+    outs:
+      - data\3_word_counts
+  sum_words:
+    cmd: python scripts\3_sum_counts.py
+    deps:
+      - data\3_word_counts
+      - scripts\3_sum_counts.py
+    outs:
+      - data\4_final_word_count
+  plot_results:
+    cmd: python scripts\4_gen_plots.py
+    deps:
+      - data\4_final_word_count
+      - scripts\4_gen_plots.py
+    outs:
+      - results
