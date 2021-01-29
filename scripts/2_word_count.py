@@ -5,7 +5,7 @@ import numpy as np
 
 # Save Word Count, for each work, into a numpy file
 data_dir = Path(".")
-for f in data_dir.glob('**/*.txt'):
+for f in data_dir.glob('data/**/*.txt'):
     try:
         text = f.read_text()
     except UnicodeDecodeError:
