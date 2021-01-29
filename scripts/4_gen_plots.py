@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-total_counts = np.load("data/total_word_counts.pkl", allow_pickle=True)
+total_counts = np.load("./data/4_final_word_count/total_word_counts.pkl", allow_pickle=True)
 
 # Plot Most Common Words
 plt.figure()

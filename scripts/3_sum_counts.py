@@ -5,10 +5,10 @@ from pathlib import Path
 import numpy as np
 
 # Sum Word Counts
-data_dir = Path("./data/3_words_counts")
+data_dir = Path("./data/3_word_counts")
 total_counts = Counter()
 for f in data_dir.glob('*.npy'):
-    data = np.load(f.with_suffix('.npy'), allow_pickle=True)
+    data = np.load(f, allow_pickle=True)
     dd = dict(data.item())
     total_counts += Counter(dd)
 
